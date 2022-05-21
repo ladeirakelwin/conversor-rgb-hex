@@ -16,15 +16,24 @@ const mapToHex = {
 	15: 'f',
 };
 
-function decimalParaHexadecimal(dec) {
+export function decimalParaHexadecimal(dec) {
+	const valoresInvalidos = ['', undefined, null];
+	const valorEhDiferenteNumero = typeof dec !== 'number';
+	const valorInvalidoDeRGB = dec < 0 || dec > 255;
+	const valorEhFloat = String(dec).includes('.');
+  
+	if (valorEhDiferenteNumero || valorInvalidoDeRGB || valorEhFloat)
+		return 'Isso não é um valor válido';
+
 	const result = dec / 16;
 
 	const ehInteiro = !String(result).includes('.');
 
-	if (ehInteiro) {
+	if (ehInteiro && result != dec) {
 		const stringDec = String(result);
-		if (result < 10) return 0 + stringDec;
-		return mapToHex[stringDec];
+		if (result < 10) return stringDec + 0;
+		// if (result % 16 == 0) =
+		return mapToHex[stringDec] + 0;
 	}
 
 	const [inteiro, otherdecimal] = String(result).split('.');
@@ -37,7 +46,7 @@ function decimalParaHexadecimal(dec) {
 	return primeiroHex + segundoHex;
 }
 
-function rgbParaHexadecimal(red, green, blue) {
+export function rgbParaHexadecimal(red, green, blue) {
 	return {
 		red: decimalParaHexadecimal(red),
 		green: decimalParaHexadecimal(green),
@@ -45,7 +54,7 @@ function rgbParaHexadecimal(red, green, blue) {
 	};
 }
 
-function hexadecimalParaDecimal(hexadecimal) {
+export function hexadecimalParaDecimal(hexadecimal) {
 	const valoresInvalidos = ['', undefined, null];
 	if (
 		hexadecimal.length > 2 ||
@@ -67,7 +76,7 @@ function hexadecimalParaDecimal(hexadecimal) {
 	return String(primeiroDec + segundoDec);
 }
 
-function hexadecimalParaRGB(red, green, blue) {
+export function hexadecimalParaRGB(red, green, blue) {
 	return {
 		red: hexadecimalParaDecimal(red),
 		green: hexadecimalParaDecimal(green),
@@ -75,9 +84,4 @@ function hexadecimalParaRGB(red, green, blue) {
 	};
 }
 
-module.exports = {
-	hexadecimalParaDecimal,
-	hexadecimalParaRGB,
-	decimalParaHexadecimal,
-	rgbParaHexadecimal,
-};
+console.log(decimalParaHexadecimal(16));
