@@ -19,10 +19,10 @@ app.post('/rgbToHex', (req, res) => {
 		}
 	})
 	if (contador == 3) {
-		res.status(201).send(rgbParaHexadecimal(body.red, body.green, body.blue));
+		res.status(201).send(JSON.stringify(rgbParaHexadecimal(body.red, body.green, body.blue)));
 		return
 	}
-	res.status(400).send({erro: 'Está faltando algum parâmetro'})
+	res.status(400).send(JSON.stringify({erro: 'Está faltando algum parâmetro'}))
 });
 
 app.post('/hexToRgb', (req, res) => {
@@ -39,10 +39,10 @@ app.post('/hexToRgb', (req, res) => {
 		}
 	})
 	if (contador == 3) {
-		res.status(201).send(hexadecimalParaRGB( body.red, body.green, body.blue));
+		res.status(201).send(JSON.stringify(hexadecimalParaRGB( body.red, body.green, body.blue)));
 		return
 	}
-	res.status(400).send({erro: 'Está faltando algum parâmetro'})
+	res.status(400).send(JSON.stringify({erro: 'Está faltando algum parâmetro'}))
 });
 
 app.listen(port, () => {
