@@ -39,6 +39,35 @@ function decToHex(dec) {
 }
 
 function rgbToHex(red, green, blue) {
-  return "#" + decToHex(red) + decToHex(green) + decToHex(blue)
+  return {
+    red: decToHex(red),
+    green: decToHex(green),
+    blue: decToHex(blue)
+  } 
 }
 
+function hexToDec(hexInput) {
+  const valoresInvalidos = ['', undefined, null]
+  if(hexInput.length > 2 || String(hexInput).includes('-') || valoresInvalidos.includes(hexInput)) return 'Isso não é um valor válido'
+  const hex =  String(hexInput).toLowerCase()
+  const letras = ['a', 'b', 'c', 'd', 'e', 'f']
+  const [primeiroHex, segundoHex] = String(hex)
+  const ehUmaLetra = (value) => letras.includes(value) 
+  const prePrimeiroHex = ehUmaLetra(primeiroHex) ? Number(mapToDec[primeiroHex]) : Number(primeiroHex)
+  const primeiroDec =  prePrimeiroHex * 16
+
+  const segundoDec = ehUmaLetra(segundoHex) ? Number(mapToDec[segundoHex]) : Number(segundoHex)
+
+  return String(primeiroDec + segundoDec)
+
+}
+
+function hexToRGB(red, green, blue) {
+  return  {
+    red: hexToDec(red),
+    green: hexToDec(green),
+    blue: hexToDec(blue)
+  } 
+}
+
+console.log(rgbToHex(255,10, 40))
