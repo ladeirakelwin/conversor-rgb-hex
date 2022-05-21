@@ -21,7 +21,7 @@ export function decimalParaHexadecimal(dec) {
 	const valorEhDiferenteNumero = typeof dec !== 'number';
 	const valorInvalidoDeRGB = dec < 0 || dec > 255;
 	const valorEhFloat = String(dec).includes('.');
-  
+
 	if (valorEhDiferenteNumero || valorInvalidoDeRGB || valorEhFloat)
 		return 'Isso não é um valor válido';
 
@@ -47,6 +47,9 @@ export function decimalParaHexadecimal(dec) {
 }
 
 export function rgbParaHexadecimal(red, green, blue) {
+	if ( (decimalParaHexadecimal(red)) === 'Isso não é um valor válido') return { erro: decimalParaHexadecimal(red) }
+	if ( (decimalParaHexadecimal(green)) === 'Isso não é um valor válido') return { erro: decimalParaHexadecimal(green) }
+	if ( (decimalParaHexadecimal(blue)) === 'Isso não é um valor válido') return { erro: decimalParaHexadecimal(blue) }
 	return {
 		red: decimalParaHexadecimal(red),
 		green: decimalParaHexadecimal(green),
@@ -84,4 +87,4 @@ export function hexadecimalParaRGB(red, green, blue) {
 	};
 }
 
-console.log(decimalParaHexadecimal(16));
+console.log(rgbParaHexadecimal(90, 4.9, 134));
