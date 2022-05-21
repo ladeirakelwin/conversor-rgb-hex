@@ -64,8 +64,8 @@ export function rgbParaHexadecimal(red, green, blue) {
 export function hexadecimalParaDecimal(hexadecimal) {
   const valoresInvalidos = ['', undefined, null, '.', '-']
   if (
-    hexadecimal.length > 2 ||
     typeof hexadecimal !== 'string' ||
+    hexadecimal.length > 2 ||
     valoresInvalidos.includes(hexadecimal) ||
     hexadecimal.search(/\W/gi) !== -1
   )

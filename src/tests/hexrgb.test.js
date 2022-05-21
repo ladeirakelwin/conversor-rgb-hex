@@ -105,11 +105,13 @@ describe('testando conversão hexadecimal para decimal', () => {
     assert.equal(hexadecimalParaDecimal(4.2), 'Isso não é um valor válido')
     assert.equal(hexadecimalParaDecimal('true'), 'Isso não é um valor válido')
     assert.equal(hexadecimalParaDecimal(-220), 'Isso não é um valor válido')
-    assert.equal(hexadecimalParaDecimal(false), 'Isso não é um valor válido')
+    assert.equal(hexadecimalParaDecimal(undefined), 'Isso não é um valor válido')
     assert.equal(hexadecimalParaDecimal(true), 'Isso não é um valor válido')
     assert.equal(hexadecimalParaDecimal({}), 'Isso não é um valor válido')
     assert.equal(hexadecimalParaDecimal(['10']), 'Isso não é um valor válido')
     assert.equal(hexadecimalParaDecimal('*9'), 'Isso não é um valor válido')
+    assert.equal(hexadecimalParaDecimal(null), 'Isso não é um valor válido')
+
   })
 
   it('verificando se o valor hexadecimal é uma string', () => {
