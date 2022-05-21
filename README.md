@@ -17,8 +17,8 @@ Olhe para a nossa task list e veja quais atividades você precisa fazer para com
 - [X] Configure seu projeto com as dependencias necessárias
 - [X] Construa o Conversor de RGB para Hexadecimal
 - [X] Construa o Conversor de Hexadecimal para RGB
-- [ ] Testes do Conversor de RGB para Hexadecimal
-- [ ] Testes do Conversor de Hexadecimal para RGB
+- [X] Testes do Conversor de RGB para Hexadecimal
+- [X] Testes do Conversor de Hexadecimal para RGB
 
 ## Parte 2
 

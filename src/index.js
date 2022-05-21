@@ -100,4 +100,3 @@ export function hexadecimalParaRGB(red, green, blue) {
   }
 }
 
-console.log(hexadecimalParaDecimal('0F'))

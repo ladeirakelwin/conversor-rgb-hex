@@ -4,6 +4,7 @@
   "description": "<center>   <img src=\"https://pa1.narvii.com/6437/e490081cae3ef1c0e1c77936346013e7d93e568e_hq.gif\"></img> </center>",
   "main": "index.js",
   "scripts": {
+    "start:dev": "nodemon ./src/server.js",
     "test": "mocha ./src/tests/**/*.test.js"
   },
   "repository": {
@@ -22,5 +23,8 @@
     "mocha": "^10.0.0",
     "nodemon": "^2.0.16"
   },
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
 }
