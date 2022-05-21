@@ -14,8 +14,8 @@ Crie funções que convertam cores de RGB para Hexadecial e de Hexadecimal para 
 
 Olhe para a nossa task list e veja quais atividades você precisa fazer para completar o exercício. Quer mais desafio ? Comece construindo os testes antes das implementações das funções.
 
-- [ ] Configure seu projeto com as dependencias necessárias
-- [ ] Construa o Conversor de RGB para Hexadecimal
+- [X] Configure seu projeto com as dependencias necessárias
+- [X] Construa o Conversor de RGB para Hexadecimal
 - [ ] Construa o Conversor de Hexadecimal para RGB
 - [ ] Testes do Conversor de RGB para Hexadecimal
 - [ ] Testes do Conversor de Hexadecimal para RGB
