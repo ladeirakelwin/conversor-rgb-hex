@@ -87,6 +87,12 @@ export function hexadecimalParaDecimal(hexadecimal) {
 }
 
 export function hexadecimalParaRGB(red, green, blue) {
+  if (hexadecimalParaDecimal(red) === 'Isso não é um valor válido')
+    return { erro: hexadecimalParaDecimal(red) }
+  if (hexadecimalParaDecimal(green) === 'Isso não é um valor válido')
+    return { erro: hexadecimalParaDecimal(green) }
+  if (hexadecimalParaDecimal(blue) === 'Isso não é um valor válido')
+    return { erro: hexadecimalParaDecimal(blue) }
   return {
     red: hexadecimalParaDecimal(red),
     green: hexadecimalParaDecimal(green),

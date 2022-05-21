@@ -2,20 +2,10 @@ import { assert, expect } from 'chai'
 import {
   decimalParaHexadecimal,
   hexadecimalParaDecimal,
+  hexadecimalParaRGB,
   rgbParaHexadecimal,
 } from '../index.js'
 
-// hexToDec
-// verificando se está retornando o hexadecimal correto
-// se retorna string
-// hex tem q ser string
-// hex não pode ter tamanho maior 2, nem menor 2
-// hex não pode ser valor negativo
-
-// hexToRGB
-// caso tenha valores corretos, tem q retornar um objecto
-// caso tenha valores corretos, tem q conter red e green e blue
-// caso tenha um valor incorreto, retornar objecto com prop erro: string com o erro
 
 describe('Testando conversão de decimal para hexadecimal', () => {
   it('verificando se está retornando o decimal correto', () => {
@@ -98,7 +88,6 @@ describe('testando conversão rgb para hexadecimal', () => {
   })
 })
 
-// hexToDec
 describe('testando conversão hexadecimal para decimal', () => {
   it('verificando se o valor retornado está correto', () => {
     assert.equal(hexadecimalParaDecimal('0a'), '10')
@@ -131,5 +120,46 @@ describe('testando conversão hexadecimal para decimal', () => {
     expect(hexadecimalParaDecimal('16')).to.be.a('string')
     expect(hexadecimalParaDecimal('256')).to.be.a('string')
     expect(hexadecimalParaDecimal('-1')).to.be.a('string')
+  })
+})
+// hexToRGB
+// caso tenha valores corretos, tem q retornar um objecto
+// caso tenha valores corretos, tem q conter red e green e blue
+// caso tenha um valor incorreto, retornar objecto com prop erro: string com o erro
+describe('testando conversão hexadecimal para rgb', () => {
+  it('caso os valores sejam validos, tem que retornar um objeto', () => {
+    expect(hexadecimalParaRGB('15', '17', '99')).to.be.a('object')
+    expect(hexadecimalParaRGB('16', 'bc', 'c0')).to.be.a('object')
+    expect(hexadecimalParaRGB('25', 'a4', 'ab')).to.be.a('object')
+    expect(hexadecimalParaRGB('33', '98', '13')).to.be.a('object')
+  })
+  it('caso os valores forem validos, tem que conter red, green e blue', () => {
+    expect(hexadecimalParaRGB('25', 'a4', 'ab')).to.include.all.keys(
+      'red',
+      'green',
+      'blue',
+    )
+    expect(hexadecimalParaRGB('33', '98', '13')).to.include.all.keys(
+      'red',
+      'green',
+      'blue',
+    )
+    expect(hexadecimalParaRGB('ab', '54', '44')).to.include.all.keys(
+      'red',
+      'green',
+      'blue',
+    )
+    expect(hexadecimalParaRGB('15', '17', '99')).to.include.all.keys(
+      'red',
+      'green',
+      'blue',
+    )
+  })
+  it('caso um ou mais valores sejam incorretos, retornar objeto com o campo erro', () => {
+    expect(hexadecimalParaRGB(377, null, true)).to.have.property('erro')
+    expect(hexadecimalParaRGB(888, false, '19')).to.have.property('erro')
+    expect(hexadecimalParaRGB(455, 'string', '88')).to.have.property('erro')
+    expect(hexadecimalParaRGB(-1, 4.9, 13)).to.have.property('erro')
+    expect(hexadecimalParaRGB(90, 4.9, 134)).to.have.property('erro')
   })
 })
