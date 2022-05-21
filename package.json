@@ -1,0 +1,25 @@
+{
+  "name": "conversor-rgb-hex",
+  "version": "1.0.0",
+  "description": "<center>   <img src=\"https://pa1.narvii.com/6437/e490081cae3ef1c0e1c77936346013e7d93e568e_hq.gif\"></img> </center>",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ladeirakelwin/conversor-rgb-hex.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ladeirakelwin/conversor-rgb-hex/issues"
+  },
+  "homepage": "https://github.com/ladeirakelwin/conversor-rgb-hex#readme",
+  "devDependencies": {
+    "chai": "^4.3.6",
+    "mocha": "^10.0.0",
+    "nodemon": "^2.0.16"
+  }
+}
